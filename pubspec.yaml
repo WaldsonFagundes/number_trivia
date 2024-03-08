@@ -28,6 +28,7 @@ dev_dependencies:
 
   flutter_lints: ^2.0.0
   mockito: ^5.4.4
+  faker: ^2.1.0
 
 flutter:
 
