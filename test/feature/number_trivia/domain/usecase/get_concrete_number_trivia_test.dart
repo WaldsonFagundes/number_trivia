@@ -28,7 +28,7 @@ void main() {
         .thenAnswer((_) async => const Right(tNumberTrivia));
 
     //usecase.call(number: tNumber) == usecase(number: tNumber)
-    final result = await usecase(number: tNumber);
+    final result = await usecase(const Params(number: tNumber));
 
     expect(result, const Right(tNumberTrivia));
     verify(mockNumberTriviaRepository.getConcreteNumberTrivia(tNumber));
