@@ -4,9 +4,9 @@ import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 
-import 'package:trivia/features/number_trivia/domain/entities/entities.dart';
-import 'package:trivia/features/number_trivia/domain/repositories/repositories.dart';
-import 'package:trivia/features/number_trivia/domain/usecases/usecases.dart';
+import 'package:trivia/features/number_trivia/domain/entities/e_entities.dart';
+import 'package:trivia/features/number_trivia/domain/repositories/e_repositories.dart';
+import 'package:trivia/features/number_trivia/domain/usecases/e_usecases.dart';
 
 @GenerateNiceMocks([MockSpec<NumberTriviaRepository>()])
 import 'get_concrete_number_trivia_test.mocks.dart';

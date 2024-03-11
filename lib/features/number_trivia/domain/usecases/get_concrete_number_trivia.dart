@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:trivia/features/number_trivia/domain/entities/entities.dart';
+import 'package:trivia/features/number_trivia/domain/entities/e_entities.dart';
 
-import '../repositories/repositories.dart';
-import '../../../../core/core.dart';
+import '../repositories/e_repositories.dart';
+import '../../../../core/e_core.dart';
 
 class GetConcreteNumberTrivia {
   final NumberTriviaRepository repository;

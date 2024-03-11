@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 
-import '../../../../core/core.dart';
-import '../entities/entities.dart';
+import '../../../../core/e_core.dart';
+import '../entities/e_entities.dart';
 
 abstract class NumberTriviaRepository {
 
