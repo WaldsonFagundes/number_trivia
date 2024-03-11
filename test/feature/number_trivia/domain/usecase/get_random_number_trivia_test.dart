@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
+import 'package:trivia/core/e_core.dart';
 
 import 'package:trivia/features/number_trivia/domain/entities/e_entities.dart';
 import 'package:trivia/features/number_trivia/domain/repositories/e_repositories.dart';
