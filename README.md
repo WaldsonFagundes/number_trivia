@@ -1,6 +1,6 @@
 # trivia
 
-A new Flutter project.
+TDD Clean Architecture 
 
 ## Getting Started
 
