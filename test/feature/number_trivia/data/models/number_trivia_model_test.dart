@@ -4,7 +4,7 @@ import 'package:trivia/features/number_trivia/data/e_data.dart';
 import 'package:trivia/features/number_trivia/domain/e_domain.dart';
 
 void main(){
-  final tNumberTriviaModel = NumberTriviaModel(number: 1, text: 'Test Test');
+  const tNumberTriviaModel = NumberTriviaModel(number: 1, text: 'Test Test');
 
   test('Should be a subclass of NumberTrivia entity', () async {
 
