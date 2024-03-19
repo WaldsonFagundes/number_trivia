@@ -1,10 +1,19 @@
 import 'package:dartz/dartz.dart';
-
-import 'package:trivia/core/error/failures.dart';
-
+import '../../../../core/e_core.dart';
 import '../../domain/e_domain.dart';
+import '../e_data.dart';
 
 class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
+  final NumberTriviaRemoteDataSource remoteDataSource;
+  final NumberTriviaLocalDataSource localDataSource;
+  final NetworkInfo networkInfo;
+
+  NumberTriviaRepositoryImpl({
+    required this.remoteDataSource,
+    required this.localDataSource,
+    required this.networkInfo,
+  });
+
   @override
   Future<Either<Failure, NumberTrivia>> getConcreteNumberTrivia(int number) {
     // TODO: implement getConcreteNumberTrivia
@@ -16,5 +25,4 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
     // TODO: implement getRandomNumberTrivia
     throw UnimplementedError();
   }
-
 }

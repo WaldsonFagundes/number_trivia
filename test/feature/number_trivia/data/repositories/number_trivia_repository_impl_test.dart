@@ -10,26 +10,21 @@ import 'number_trivia_repository_impl_test.mocks.dart';
 @GenerateNiceMocks([MockSpec<NumberTriviaRemoteDataSource>()])
 @GenerateNiceMocks([MockSpec<NumberTriviaLocalDataSource>()])
 @GenerateNiceMocks([MockSpec<NetworkInfo>()])
+void main() {
+  NumberTriviaRepositoryImpl repository;
+  MockNumberTriviaRemoteDataSource mockRemoteDataSource;
+  MockNumberTriviaLocalDataSource mockLocalDataSource;
+  MockNetworkInfo mockNetworkInfo;
 
+  setUp(() {
+    mockRemoteDataSource = MockNumberTriviaRemoteDataSource();
+    mockLocalDataSource = MockNumberTriviaLocalDataSource();
+    mockNetworkInfo = MockNetworkInfo();
 
-void main(){
-
-NumberTriviaRepositoryImpl repository;
-MockNumberTriviaRemoteDataSource mockRemoteDataSource;
-MockNumberTriviaLocalDataSource mockLocalDataSource;
-MockNetworkInfo mockNetworkInfo;
-
-setUp(() {
- mockRemoteDataSource = MockNumberTriviaRemoteDataSource();
- mockLocalDataSource = MockNumberTriviaLocalDataSource();
- mockNetworkInfo = MockNetworkInfo();
-
- repository = NumberTriviaRepositoryImpl(
-   remoteDataSource: mockRemoteDataSource,
-   localDataSource: mockLocalDataSource,
-   networkInfo: mockNetworkInfo,
- );
-
-});
-
+    repository = NumberTriviaRepositoryImpl(
+      remoteDataSource: mockRemoteDataSource,
+      localDataSource: mockLocalDataSource,
+      networkInfo: mockNetworkInfo,
+    );
+  });
 }
