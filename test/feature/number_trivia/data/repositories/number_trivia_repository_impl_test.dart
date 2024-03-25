@@ -4,6 +4,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 import 'package:trivia/core/e_core.dart';
+import 'package:trivia/core/network/e_platform.dart';
 import 'package:trivia/features/number_trivia/data/e_data.dart';
 import 'package:trivia/features/number_trivia/domain/e_domain.dart';
 
