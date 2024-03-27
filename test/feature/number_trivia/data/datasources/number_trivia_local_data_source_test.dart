@@ -5,6 +5,7 @@ import 'package:mockito/mockito.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:mockito/annotations.dart';
+import 'package:trivia/core/e_core.dart';
 import 'package:trivia/features/number_trivia/data/e_data.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
@@ -34,6 +35,15 @@ void main() {
 
       verify(mockSharedPreferences.getString('CACHED_NUMBER_TRIVIA'));
       expect(result, equals(tNumberTriviaModel));
+    });
+
+    test("Should throw a CacheExeption when there is not a cached value",
+        () async {
+      when(mockSharedPreferences.getString(any)).thenReturn(null);
+
+      final call = dataSource.getLastNumberTrivia;
+
+      expect(() => call(), throwsA(const TypeMatcher<CacheException>()));
     });
   });
 }
