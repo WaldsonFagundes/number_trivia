@@ -13,3 +13,9 @@ Class 3 - https://github.com/WaldsonFagundes/numer_trivia/compare/78746c..93a8a8
 Class 4 - https://github.com/WaldsonFagundes/numer_trivia/compare/93a8a8..bc36af
 
 Class 5 - https://github.com/WaldsonFagundes/numer_trivia/compare/bc36af..6f781f
+
+Class 6 - https://github.com/WaldsonFagundes/numer_trivia/compare/6f781f..8e3840
+
+Class 7 - https://github.com/WaldsonFagundes/numer_trivia/compare/8e3840..87a362
+
+Class 8 - https://github.com/WaldsonFagundes/numer_trivia/compare/87a362..313e15
