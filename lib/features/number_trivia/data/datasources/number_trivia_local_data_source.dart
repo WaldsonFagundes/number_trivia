@@ -26,7 +26,7 @@ class NumberTriviaLocalDataSourceImpl implements NumberTriviaLocalDataSource {
   Future<NumberTriviaModel> getLastNumberTrivia() {
     final jsonString = sharedPreferences.getString(cachedNumberTrivia);
     if (jsonString != null) {
-      return Future.value(NumberTriviaModel.fromJson(json.decode(jsonString!)));
+      return Future.value(NumberTriviaModel.fromJson(json.decode(jsonString)));
     } else {
       throw CacheException();
     }
