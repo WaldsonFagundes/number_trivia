@@ -1,12 +1,10 @@
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:trivia/core/e_core.dart';
-import 'package:trivia/features/number_trivia/data/datasources/e_datasources.dart';
 import 'package:trivia/features/number_trivia/data/e_data.dart';
 
 import '../../../../fixtures/fixture_reader.dart';
@@ -19,7 +17,7 @@ void main() {
 
   setUp(() {
     mockHttpClient = MockClient();
-    dataSource = NumbeTriviaRemoteDataSourceImpl(client: mockHttpClient);
+    dataSource = NumberTriviaRemoteDataSourceImpl(client: mockHttpClient);
   });
 void setUpMockHttpClientSuccess200(){
   when(mockHttpClient.get(any, headers: anyNamed('headers')))
