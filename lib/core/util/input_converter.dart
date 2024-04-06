@@ -5,7 +5,9 @@ import '../e_core.dart';
 class InputConverter {
   Either<Failure, int> stringToUnsignedInteger(String str) {
     try {
-      return Right(int.parse(str));
+      final strInt = int.parse(str);
+      if (strInt < 0) throw const FormatException();
+      return Right(strInt);
     } on FormatException {
       return Left(InvalidInputFailure());
     }
