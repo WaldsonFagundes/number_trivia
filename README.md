@@ -19,3 +19,7 @@ Class 6 - https://github.com/WaldsonFagundes/numer_trivia/compare/6f781f..8e3840
 Class 7 - https://github.com/WaldsonFagundes/numer_trivia/compare/8e3840..87a362
 
 Class 8 - https://github.com/WaldsonFagundes/numer_trivia/compare/87a362..313e15
+
+Class 9 - https://github.com/WaldsonFagundes/numer_trivia/compare/313e15..ab71ef
+
+Class 10 - https://github.com/WaldsonFagundes/numer_trivia/compare/ab71ef..ab6305
