@@ -59,5 +59,20 @@ void main() {
     });
 
 
+    test("Should emit [Error] when the input is invalid", () async {
+      when(mockInputConverter.stringToUnsignedInteger(any))
+          .thenReturn(Left(InvalidInputFailure()));
+
+      final expected = [
+        Empty(),
+        const Error(message: INVALID_INPUT_FAILURE_MESSAGE),
+      ];
+
+      expectLater(bloc.stream, emitsInOrder(expected));
+
+      expect(bloc.state, equals(Empty()));
+
+      bloc.add(const GetTriviaForConcreteNumber(tNumberString));
+    });
   });
 }
