@@ -23,3 +23,5 @@ Class 8 - https://github.com/WaldsonFagundes/numer_trivia/compare/87a362..313e15
 Class 9 - https://github.com/WaldsonFagundes/numer_trivia/compare/313e15..ab71ef
 
 Class 10 - https://github.com/WaldsonFagundes/numer_trivia/compare/ab71ef..ab6305
+
+Class 11 - https://github.com/WaldsonFagundes/numer_trivia/compare/ab6305..de9d9a

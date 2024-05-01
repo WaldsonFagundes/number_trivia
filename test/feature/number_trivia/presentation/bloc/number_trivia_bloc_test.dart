@@ -39,25 +39,24 @@ void main() {
     const tNumberParsed = 1;
     const tNumberTrivia = NumberTrivia(number: 1, text: 'Test Trivia');
 
-    void setUpMockInutConverterSuccess() =>
+    void setUpMockInputConverterSuccess() =>
         when(mockInputConverter.stringToUnsignedInteger(any))
             .thenReturn(const Right(tNumberParsed));
     test(
         "Should call the InputConverter to validate and convert the string to an unsigned number",
         () async {
-      setUpMockInutConverterSuccess();
+      setUpMockInputConverterSuccess();
 
       when(mockGetConcreteNumberTrivia(any))
           .thenAnswer((_) async => const Right(tNumberTrivia));
 
       bloc.add(const GetTriviaForConcreteNumber(tNumberString));
-       await untilCalled(mockInputConverter.stringToUnsignedInteger(any));
+      await untilCalled(mockInputConverter.stringToUnsignedInteger(any));
 
       verify(mockInputConverter.stringToUnsignedInteger(tNumberString));
 
       verifyNoMoreInteractions(mockInputConverter);
     });
-
 
     test("Should emit [Error] when the input is invalid", () async {
       when(mockInputConverter.stringToUnsignedInteger(any))
@@ -73,6 +72,16 @@ void main() {
       expect(bloc.state, equals(Empty()));
 
       bloc.add(const GetTriviaForConcreteNumber(tNumberString));
+    });
+    test("Should get data from the concrete use case", () async {
+      setUpMockInputConverterSuccess();
+      when(mockGetConcreteNumberTrivia(any))
+          .thenAnswer((_) async => const Right(tNumberTrivia));
+
+      bloc.add(const GetTriviaForConcreteNumber(tNumberString));
+      await untilCalled(mockGetConcreteNumberTrivia(any));
+
+      verify(mockGetConcreteNumberTrivia(const Params(number: tNumberParsed)));
     });
   });
 }
