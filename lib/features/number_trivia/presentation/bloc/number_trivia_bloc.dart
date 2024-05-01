@@ -34,11 +34,28 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
             emit(Loading());
             final failureOrTrivia =
                 await getConcreteNumberTrivia(Params(number: integer));
-            failureOrTrivia.fold((failure) => throw UnimplementedError(),
+            failureOrTrivia.fold((failure) => emit(Error(message: _mapFailureToMessage(failure))),
                 (trivia) => emit(Loaded(trivia: trivia)));
           },
         );
+      } else if(event is GetTriviaForRandomNumber) {
+        emit(Empty());
+        emit(Loading());
+        final failureOrTrivia =
+        await getRandomNumberTrivia(NoParams());
+        failureOrTrivia.fold((failure) => emit(Error(message: _mapFailureToMessage(failure))),
+                (trivia) => emit(Loaded(trivia: trivia)));
       }
     });
+  }
+  String _mapFailureToMessage(Failure failure) {
+    switch (failure.runtimeType) {
+      case ServerFailure:
+        return SERVER_FAILURE_MESSAGE;
+      case CacheFailure:
+        return CACHE_FAILURE_MESSAGE;
+      default:
+        return 'Unexpected error';
+    }
   }
 }
