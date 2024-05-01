@@ -83,5 +83,20 @@ void main() {
 
       verify(mockGetConcreteNumberTrivia(const Params(number: tNumberParsed)));
     });
+    test("Should emit [Loading, Loaded] when data is gotten successfully",
+        () async {
+      setUpMockInputConverterSuccess();
+      when(mockGetConcreteNumberTrivia(any))
+          .thenAnswer((_) async => const Right(tNumberTrivia));
+
+      final expected = [
+        Empty(),
+        Loading(),
+        const Loaded(trivia: tNumberTrivia),
+      ];
+      expectLater(bloc.stream, emitsInOrder(expected));
+
+      bloc.add(const GetTriviaForConcreteNumber(tNumberString));
+    });
   });
 }
