@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/e_core.dart';
@@ -34,20 +35,25 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
             emit(Loading());
             final failureOrTrivia =
                 await getConcreteNumberTrivia(Params(number: integer));
-            failureOrTrivia.fold((failure) => emit(Error(message: _mapFailureToMessage(failure))),
-                (trivia) => emit(Loaded(trivia: trivia)));
+            _eitherLoadedOrErrorState(failureOrTrivia, emit);
           },
         );
-      } else if(event is GetTriviaForRandomNumber) {
+      } else if (event is GetTriviaForRandomNumber) {
         emit(Empty());
         emit(Loading());
-        final failureOrTrivia =
-        await getRandomNumberTrivia(NoParams());
-        failureOrTrivia.fold((failure) => emit(Error(message: _mapFailureToMessage(failure))),
-                (trivia) => emit(Loaded(trivia: trivia)));
+        final failureOrTrivia = await getRandomNumberTrivia(NoParams());
+        _eitherLoadedOrErrorState(failureOrTrivia, emit);
       }
     });
   }
+
+  void _eitherLoadedOrErrorState(Either<Failure, NumberTrivia> failureOrTrivia,
+      Emitter<NumberTriviaState> emit) {
+    failureOrTrivia.fold(
+        (failure) => emit(Error(message: _mapFailureToMessage(failure))),
+        (trivia) => emit(Loaded(trivia: trivia)));
+  }
+
   String _mapFailureToMessage(Failure failure) {
     switch (failure.runtimeType) {
       case ServerFailure:
