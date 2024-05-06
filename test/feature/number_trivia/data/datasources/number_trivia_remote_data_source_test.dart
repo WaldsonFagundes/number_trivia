@@ -38,7 +38,7 @@ void setUpMockHttpClientSuccess200(){
 
      await dataSource.getConcreteNumberTrivia(tNumber);
 
-      verify(mockHttpClient.get(Uri(path: "http://numbersapi.com/$tNumber"), headers: {
+      verify(mockHttpClient.get(Uri.parse("http://numbersapi.com/$tNumber"), headers: {
         'Content-Type': 'application/json',
       }));
     });
@@ -69,7 +69,7 @@ void setUpMockHttpClientSuccess200(){
 
       await dataSource.getRandomNumberTrivia();
 
-      verify(mockHttpClient.get(Uri(path: "http://numbersapi.com/random"), headers: {
+      verify(mockHttpClient.get(Uri.parse("http://numbersapi.com/random"), headers: {
         'Content-Type': 'application/json',
       }));
     });
